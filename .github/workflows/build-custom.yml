@@ -1,0 +1,24 @@
+name: Build Custom Kanata
+
+on:
+  workflow_dispatch: # This lets you trigger it manually with a button
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Install Rust
+      uses: dtolnay/rust-toolchain@stable
+
+    - name: Build Kanata
+      run: cargo build --release
+
+    - name: Upload EXE
+      uses: actions/upload-artifact@v4
+      with:
+        name: custom-kanata-exe
+        path: target/release/kanata.exe
