@@ -336,7 +336,7 @@ pub fn str_to_oscode(s: &str) -> Option<OsCode> {
         "ncnv" | "mhnk" | "muhenkan" => OsCode::KEY_MUHENKAN,
         #[cfg(target_os = "macos")]
         "Lang1" | "kana" => OsCode::KEY_HANGEUL,
-        #[cfg(any(target_os = "macos", target_os = "unknown"))]
+        #[cfg(any(target_os = "macos", target_os = "unknown", target_os = "windows"))]
         "Lang2" | "eisu" => OsCode::KEY_HANJA,
 
         "IntlRo" | "ro" => OsCode::KEY_RO,
